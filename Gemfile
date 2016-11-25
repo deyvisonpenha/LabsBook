@@ -28,6 +28,9 @@ gem 'jbuilder', '~> 2.5'
  gem 'bcrypt', '~> 3.1.7'
 #gem 'adminlte-rails'
 
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+gem 'bootstrap-daterangepicker-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
