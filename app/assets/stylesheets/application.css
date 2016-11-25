@@ -12,8 +12,13 @@
  *
  *= require_tree .
  *= require_self
+
  *= require bootstrap.min.css
- *= require font-awesome.min.css
+ *= require fullcalendar.min.css
+ *= require fullcalendar.print.css
+ *= require jquery-jvectormap-1.2.2.css
  *= require AdminLTE.min.css
+ *= require _all-skins.min.css
  *= require blue.css
+ *= require bootstrap3-wysihtml5.min.css
  */
