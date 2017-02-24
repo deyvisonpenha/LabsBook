@@ -1,6 +1,6 @@
 class UsersController < AuthorizationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  #skip_before_action :authorize, only: [:new, :create]
+  #skip_before_action :authorize, only: [:new, :create] 
 
   # GET /users
   # GET /users.json
@@ -20,6 +20,7 @@ class UsersController < AuthorizationController
 
   # GET /users/1/edit
   def edit
+        @current_user ||= User.find(session[:user_id]) 
   end
 
   # POST /users
@@ -29,7 +30,7 @@ class UsersController < AuthorizationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to users_url, notice: 'User was successfully created.' }
+        format.html { redirect_to professor_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -43,7 +44,7 @@ class UsersController < AuthorizationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to users_url, notice: 'User was successfully updated.' }
+        format.html { redirect_to professor_path, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -57,7 +58,7 @@ class UsersController < AuthorizationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to professor_path, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -70,7 +71,7 @@ class UsersController < AuthorizationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :password, :password_confirmation)
+      params.require(:user).permit(:name, :password)
     end
 
 end

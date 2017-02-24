@@ -1,0 +1,26 @@
+<div class="col-md-6" id="book">
+	<div class="panel panel-primary"> 
+		<div class="panel-heading"> 
+			<h3 class="panel-title">Cadastro Laboratório</h3> 
+		</div> 
+		<div class="panel-body"> 
+
+			<%= form_for @booking  do |booking| %>
+			
+			<%= booking.label :professor%>:
+			<strong><%=  @current_user.name  %></strong>
+			
+			<br />
+
+			<%= booking.label :disciplina%>:
+			<%= booking.text_field :disciplina %><br />
+
+			<div class="col-xs-4">
+				<%= submit_tag "Salvar" , class: "btn btn-primary btn-block btn-flat"%>
+			</div>
+			<% end %>
+
+		</div> 
+	</div>
+</div>
+

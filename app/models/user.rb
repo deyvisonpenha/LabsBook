@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-	attr_reader :password
+	attr_reader :password 
+	has_many :bookings
 
 	validates :password, presence: {:if => :require_password?}
 

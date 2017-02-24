@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-	#skip_before_action :authorize
+	#skip_before_action :authorize 
 
 	def new
 	end
@@ -9,15 +9,15 @@ class SessionsController < ApplicationController
 		if !user.nil?
 			session[:user_id] = user.id
 			session[:user_name] = user.name
-			redirect_to admin_url
+			redirect_to professor_path
 		else 
-			redirect_to login_url, alert:"Usuário ou Senha invalida"
+			redirect_to root_path, alert:"Usuário ou Senha invalida"
 		end
 		
 	end
 
 	def destroy
 		session[:user_id] = nil
-		redirect_to login_url, alert:"Successfully logged out"
+		redirect_to root_path, alert:"Successfully logged out"
 	end
 end

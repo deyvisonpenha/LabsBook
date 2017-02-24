@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-	
+
 	#get 'aluno/index'
 
 	#get 'admin/index'
@@ -10,11 +10,20 @@ Rails.application.routes.draw do
 
 	get 'sessions/destroy'
 
-	get 'aluno' => 'aluno#index'
+	get 'reserva' => 'admin#new'
+	get 'profile' => 'admin#profile'
 
+
+	match "professor" => "admin#index", :as => "professor" , via: [:get, :post]
+	match "aluno" => "aluno#index", via: :all
+	
 	resources :users
-
-	get 'admin' => 'admin#index'
+	resources :bookings, only: [:index, :show, :create , :new, :edit, :destroy]
+	
+	controller :aluno do
+		get 'Lab1' => 'aluno#index'
+		get 'Lab2' => 'aluno#index'
+	end
 
 	controller :sessions do
 		get 'login' => :new
@@ -22,6 +31,9 @@ Rails.application.routes.draw do
 		delete 'logout' => :destroy
 	end
 
-	root 'admin#index'
+
+	
+
+	root 'aluno#index'
 
 end

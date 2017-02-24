@@ -1,0 +1,31 @@
+<div class="col-md-6" id="profile">
+  <div class="panel panel-primary"> 
+    <div class="panel-heading"> 
+      <h3 class="panel-title">Editing User</h3> 
+    </div> 
+    <div class="panel-body"> 
+      <p>
+        <strong>Name:</strong>
+        <%= @current_user.name %>
+      </p>
+
+      <%= form_for(@current_user) do |f|%>
+
+      <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name , :readonly => true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </div>
+
+      <div class="col-xs-4">
+        <%= submit_tag "Salvar" , class: "btn btn-primary btn-block btn-flat"%>
+      </div>
+      <% end %> <!-- end form --> 
+
+    </div><!-- end panel-body --> 
+  </div>
+</div>

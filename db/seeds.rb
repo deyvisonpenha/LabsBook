@@ -7,3 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create(name: 'admin', password: 'admin')
+
+#connection = ActiveRecord::Base.connection()
+#connection.execute("INSERT INTO users values"+admin+";")

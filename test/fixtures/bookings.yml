@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  disciplina: MyString
+  inicio: 2017-02-17
+  fim: 2017-02-17
+  lab: 1
+  user: one
+
+two:
+  disciplina: MyString
+  inicio: 2017-02-17
+  fim: 2017-02-17
+  lab: 1
+  user: two
