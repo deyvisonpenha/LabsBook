@@ -1,5 +1,5 @@
 class BookingsController < AuthorizationController
-  before_action :set_prof, only: [:show, :edit, :new, :destroy]
+  before_action :set_prof, only: [:show, :edit, :create, :new, :destroy]
 
   def index
     @bookings = Booking.all
@@ -10,11 +10,14 @@ class BookingsController < AuthorizationController
 
   
   def new
-    @booking = Booking.new(:user_id => User.find(session[:user_id]))    
+    @booking = Booking.new()
+    @booking.user_id = @current_user.id
+    #@booking = current_user.bookings.build(booking_params)  
   end
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.user_id = @current_user.id
     if @booking.save
       redirect_to professor_path
     else
@@ -37,7 +40,7 @@ class BookingsController < AuthorizationController
     end
 
     def booking_params
-      params.require(:booking).permit(:disciplina, :inicio,:fim, :lab, :user_id => User.find(session[:user_id]))
+      params.require(:booking).permit(:disciplina, :inicio,:fim, :lab, :user_id)
     end
 
   

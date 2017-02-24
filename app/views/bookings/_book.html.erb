@@ -6,10 +6,12 @@
 		<div class="panel-body"> 
 
 			<%= form_for @booking  do |booking| %>
-			
+
 			<%= booking.label :professor%>:
-			<strong><%=  @current_user.name  %></strong>
-			
+			<%= booking.fields_for :user  do |ff| %>
+			<%= ff.text_field :name , :readonly => true %>
+
+			<% end %>
 			<br />
 
 			<%= booking.label :disciplina%>:
