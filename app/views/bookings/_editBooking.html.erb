@@ -6,11 +6,19 @@
 		<div class="panel-body"> 
 
 			<p>
-				<% if @booking == nil%> 
+				<% if @bookings == nil%> 
 				<h1>Nao possui agendamentos</h1>
-				<% else @booking.disciplina %>
+				<% else%>
+				<ul>
+					<% @bookings.each do |user| %>
+					<li><%= user.disciplina %></li>
+					<% end %>
+				</ul>
 				<% end %>
 			</p>
+
+			
+
 		</div> 
 	</div>
 </div>

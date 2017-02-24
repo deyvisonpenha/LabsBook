@@ -12,7 +12,7 @@ class BookingsController < AuthorizationController
   def new
     @booking = Booking.new()
     @booking.user_id = @current_user.id
-    #@booking = current_user.bookings.build(booking_params)  
+  
   end
 
   def create
