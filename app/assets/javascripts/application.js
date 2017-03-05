@@ -12,17 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require_tree .
 //= require bootstrap.min.js
-//= require jquery-ui.min.js
+//= require jquery-ui
 //= require jquery.slimscroll.min.js
 //= require fastclick.js
 //= require app.min.js
 //= require demo.js
 //= require moment.min.js
 //= require fullcalendar.min.js
-
-
-
-
+//= require turbolinks
+//= require_tree .

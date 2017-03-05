@@ -17,9 +17,11 @@ ActiveRecord::Schema.define(version: 20170217162024) do
 
   create_table "bookings", force: :cascade do |t|
     t.string   "disciplina"
+    t.string   "dias"
     t.date     "inicio"
     t.date     "fim"
     t.integer  "lab"
+    t.integer  "horario"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

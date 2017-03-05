@@ -40,7 +40,7 @@ class BookingsController < AuthorizationController
     end
 
     def booking_params
-      params.require(:booking).permit(:disciplina, :inicio,:fim, :lab, :user_id)
+      params.require(:booking).permit(:disciplina, :dias,:inicio,:fim, :lab, :horario, :user_id)
     end
 
   

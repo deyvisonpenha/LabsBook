@@ -1,28 +1,108 @@
-<div class="col-md-6" id="book">
+<div class="col-md-7" id="book">
 	<div class="panel panel-primary"> 
 		<div class="panel-heading"> 
 			<h3 class="panel-title">Cadastro Laboratório</h3> 
 		</div> 
 		<div class="panel-body"> 
-
 			<%= form_for @booking  do |booking| %>
+			<!-- Table -->
+			<table class="table">
+				
+				<tbody> 
+					<tr> 
+						<th scope="row">
+							<%= booking.label :professor%>
+						</th> 
+						<td>
+							<%= booking.fields_for :user  do |ff| %>
+							<%= ff.text_field :name , :readonly => true %>
+							<% end %>
+						</td> 
+						<th>Laboratorio</th> 
+						<td><%= booking.select(:lab,options_for_select([["labcom1",1],["labcom2",2]]), {:include_blank => '-select-'}) %>
+							
+						</td> 
+					</tr> 
+					<tr> 
+						<th scope="row">
+							<%= booking.label :disciplina%>
+						</th> 
+						<td>
+							<%= booking.text_field :disciplina %>
+						</td> 
+						<td> <%= booking.label :horário %>	</td> 
+						<td>
+							<%= booking.select(:horario,options_for_select([["7:30--9:10 h",11],
+								["9:20--11:00 h",12],["11:10--12:50 h",13],["14:50--16:30 h",21],
+								["16:40--18:20 h",22], ["18:30--20:10 h",23]
+								]), {:include_blank => '-select-'}) %>			
+							</td> 
+						</tr> 
+					</tbody> 
+				</table>
+				<div class="field ">
+					<h3>Período de Agendamento</h3>
+				</div>
 
-			<%= booking.label :professor%>:
-			<%= booking.fields_for :user  do |ff| %>
-			<%= ff.text_field :name , :readonly => true %>
+				<table class="table">
+					<tbody>
+						<tr> 
+							<th scope="row" class="label-info">
+								<%= booking.label :Seg %> 
+								<%= booking.check_box :dias %> 
+							</th> 
+							<th scope="row" class="label-default">
+								<%= booking.label :Ter %>
+								<%= booking.check_box :dias %> 
+							</th> 
+							<th scope="row" class="label-success">
+								<%= booking.label :Qua %>
+								<%= booking.check_box :dias %> 
+							</th> 
+							<th scope="row" class="label-warning">
+								<%= booking.label :Qui %>
+								<%= booking.check_box :dias %> 
+							</th> 
+							<th scope="row" class="label-danger">
+								<%= booking.label :Sex %>
+								<%= booking.check_box :dias %> 
+							</th> 
+							<th scope="row" class="label-primary">
+								<%= booking.label :Sab %>
+								<%= booking.check_box :dias %> 
+							</th> 
+						</tr>
+					</tbody>
+				</table>
 
-			<% end %>
-			<br />
+				<div class="input-group label"> 
+					<span class="input-group-addon label-default"> 
+						<%= booking.label :inicio %>					
+					</span> 
+					<span class="input-group-addon"> 
+						<%= booking.date_field :inicio %>
+					</span> 
+					<span class="input-group-addon"> 
+						<%= booking.label :fim%>
+					</span> 
+					<span class="input-group-addon"> 
+						<%= booking.text_field :fim %>
+					</span> 
+				</div> 
 
-			<%= booking.label :disciplina%>:
-			<%= booking.text_field :disciplina %><br />
-
-			<div class="col-xs-4">
-				<%= submit_tag "Salvar" , class: "btn btn-primary btn-block btn-flat"%>
-			</div>
-			<% end %>
-
-		</div> 
+				<div class="field">
+					<div class="col-xs-4">
+						<%= submit_tag "Salvar" , class: "btn btn-primary btn-block btn-flat"%>
+					</div>
+				</div>
+				<% end %>
+			</div> 
+		</div>
 	</div>
-</div>
 
+	<script type="text/javascript">
+		$(function() {
+			$('#booking_inicio').datepicker({ minDate: 0, dateFormat: 'dd-mm-yy' });
+			$('#booking_fim').datepicker({ dateFormat: 'dd-mm-yy' });
+		});
+	</script>

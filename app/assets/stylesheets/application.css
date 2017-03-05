@@ -20,4 +20,5 @@
  *= require _all-skins.min.css
  *= require blue.css
  *= require bootstrap3-wysihtml5.min.css
+ *= require jquery-ui/datepicker
  */
