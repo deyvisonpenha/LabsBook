@@ -13,7 +13,7 @@ Rails.application.config.assets.enabled = true
 
 Rails.application.config.assets.compile = true
 
-Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf|jpg)\z/
+Rails.application.config.assets.precompile << ["*.svg", "*.eot", "*.woff", "*.ttf"]
 Rails.application.config.assets.precompile += %w( *.js )
 Rails.application.config.assets.precompile += %w( *.css )
 
